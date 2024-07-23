@@ -1,0 +1,6 @@
+<div class="product-list d-flex flex-column gap-1 ">
+  @for (product of products; track product.id){
+    <app-card-user class="product-card gap-2 " [product]="product" (productDeleted)="deletedProduct($event) " ></app-card-user>
+  }
+</div>
+

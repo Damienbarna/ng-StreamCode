@@ -1,0 +1,47 @@
+.card-body {
+  background-color: #141414;
+  color: rgb(192, 186, 186);
+  border-color: #141414;
+  
+}
+
+.card {
+  border: none;
+  position: relative;
+  overflow: hidden; 
+  margin: 1vh;
+  height: 50vh;
+ 
+}
+
+.card:hover {
+  border: 2px solid #a42121;
+}
+
+.langage {
+  background-color: #a42121;
+  padding: 4px;
+  font-size: 2vh;
+  border-radius: 1vh;
+  text-align: center;
+}
+
+.product-image {
+  width: 40px;
+  border-radius: 20vh;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  background-color: #a42121 ;
+  padding: 7px 13px; // Ajouté pour réduire la taille du bouton
+  font-size: 1.5vh; 
+  color: white;
+  
+}
+
+

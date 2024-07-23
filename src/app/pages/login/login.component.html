@@ -1,0 +1,38 @@
+<div class="modal" [ngClass]="{'show': isVisible}" (click)="onClose($event)">
+  <div class="modal-content" (click)="preventClose($event)">
+    <span class="close" (click)="onClose($event)">&times;</span>
+    <h2>S'enregistrer</h2>
+    <form [formGroup]="signupForm" (ngSubmit)="onRegisterSubmit()">
+      <div>
+        <label for="username">Nom d'utilisateur</label>
+        <input id="username" formControlName="username" type="text" placeholder="Nom d'utilisateur" />
+      </div>
+      <div>
+        <label for="password">Mot de passe</label>
+        <input id="password" formControlName="password" type="password" placeholder="Mot de passe" />
+      </div>
+      <button type="submit" class="btn btn-primary">S'inscrire</button>
+    </form>
+  </div>
+</div>
+
+<div class="modal" [ngClass]="{'show': isSecondModalVisible}" (click)="onCloseSecondModal($event)">
+  <div class="modal-content" (click)="preventClose($event)">
+    <span class="close" (click)="onCloseSecondModal($event)">&times;</span>
+    <h2>Se connecter</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+      <div>
+        <label for="login-username">Nom d'utilisateur</label>
+        <input id="login-username" formControlName="username" type="text" placeholder="Nom d'utilisateur" />
+      </div>
+      <div>
+        <label for="login-password">Mot de passe</label>
+        <input id="login-password" formControlName="password" type="password" placeholder="Mot de passe" />
+      </div>
+      <button type="submit" class="btn btn-dark">Se connecter</button>
+    </form>
+  </div>
+</div>
+
+<button class="btn btn-danger" (click)="openFirstModal()">S'enregistrer</button>
+<button class="btn btn-dark" (click)="openSecondModal()">Se connecter</button>

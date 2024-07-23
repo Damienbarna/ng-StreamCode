@@ -1,0 +1,56 @@
+.card {
+  
+  padding: 0.2vh;
+  text-align: start;
+  color: white;
+  border-radius: 3vh;
+  min-width: 24vh;
+  width: 40vh;
+  height: 40vh;
+  background-color: #141414;
+}
+.card:hover{
+  transform: scale(1.05) ;
+}
+
+
+*{
+  font-family: "Audiowide", sans-serif;
+}
+
+section {
+  margin-left: 2%;
+  overflow-x: hidden;
+}
+
+img {
+  width: 20%;
+  
+  
+}
+
+#top-categories {
+  color: rgb(144, 26, 26);
+}
+
+
+
+
+p {
+  color: white;
+  font-size: 3vh;
+}
+
+p:hover {
+  color: red;
+}
+
+.trait {
+  width: 95%;
+  height: 1px;
+  background-color: rgb(61, 60, 60);
+  margin-left: 2.5%;
+  
+  
+  
+}

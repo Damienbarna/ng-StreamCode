@@ -1,0 +1,20 @@
+.custom-size {
+  transform: scale(0.8); /* Réduit la taille de tout à 80% */
+}
+
+.custom-size .card-img-top {
+  width: 100%; /* Ajuste la taille de l'image pour occuper tout l'espace disponible */
+  margin: 0; /* Supprime les marges */
+  padding: 0; /* Supprime les paddings */
+}
+
+.custom-size .cardbody p {
+  font-size: 0.8rem; /* Ajuste la taille du texte */
+}
+
+.centered-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

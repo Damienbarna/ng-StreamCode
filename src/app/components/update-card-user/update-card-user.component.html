@@ -1,0 +1,11 @@
+<form class="d-flex flex-column align-items-center gap-3" [formGroup]="userGroup" (ngSubmit)="onSubmit()">
+  <input formControlName="name" placeholder="name">
+  <input formControlName="description" placeholder="description">
+  <input formControlName="langage" placeholder="langage">
+  <input formControlName="categorie" placeholder="categorie">
+  <input formControlName="url" placeholder="url">
+  <input formControlName="image" placeholder="image">
+  <button type="submit" class="btn btn-success">Ajouter</button>
+</form>
+
+

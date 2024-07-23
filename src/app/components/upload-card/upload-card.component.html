@@ -1,0 +1,8 @@
+<form class="d-flex flex-column align-items-center gap-3" [formGroup]="userGroup" (ngSubmit)="onSubmit()">
+  <input formControlName="name" placeholder="Titre">
+  <input formControlName="description" placeholder="Prix">
+  <input formControlName="langage" placeholder="Url">
+  <input formControlName="categorie" placeholder="Description">
+  <input type="file" (change)="onFileSelected($event)" />
+  <button type="submit" class="btn btn-success">Ajouter</button>
+</form>

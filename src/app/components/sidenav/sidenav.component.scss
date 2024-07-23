@@ -1,0 +1,31 @@
+.example-container {
+  position: fixed;
+  top: 8%;
+  left: 0;
+  background-color: #1f1919;
+  z-index: 1000; 
+  height: 100%;
+  
+  
+}
+
+.example-sidenav {
+  background-color: #1f1919;
+  
+  
+}
+
+.section {
+  margin-top: 5vh;
+}
+
+button{
+  background-color: transparent;
+  border: none;
+  color: #fff;
+}
+
+.example-sidenav {
+  width: 30vh;
+}
+
