@@ -1,21 +1,31 @@
 
 
-<div class="carte d-flex mt-3">
+<div class="carte d-flex  ">
   <video controls>
     <source [src]="product.image" type="video/mp4">
     Votre navigateur ne supporte pas les vidéos
   </video>
+
+
   <ul class="list-unstyled ms-2">
     <li>{{product.name}}</li>
-    <li>{{product.description}}</li>
+    <li>{{product.description}}</li>    
+    <li></li>
+
+    <div class="boutons d-flex text-center">
+    <button class="btn bouton" (click)="deleteProduct()">Supprimer</button>
+<!-- Button trigger modal -->
+<button type="button" class="btn bouton" data-bs-toggle="modal" data-bs-target="#modal">
+Modifier
+</button>
+</div>
+
+
   </ul>
   
 </div>
-<button class="btn btn-light" (click)="deleteProduct()">Supprimer</button>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modal">
-Modifier
-</button>
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
@@ -27,22 +37,11 @@ Modifier
 
 </div>
 </div>
-
-
 <div>
   
 </div>
 
 </div>
-
-
-
-
-    
-
-
-    
-      
 
 
 

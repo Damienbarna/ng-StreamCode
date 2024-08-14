@@ -1,47 +1,30 @@
-.card-body {
-  background-color: #141414;
-  color: rgb(192, 186, 186);
-  border-color: #141414;
-  
+
+video{
+  border-radius: 1vh;
 }
 
 .card {
+  width: 40vh;
+  height: 40vh;
   border: none;
-  position: relative;
-  overflow: hidden; 
-  margin: 1vh;
-  height: 50vh;
- 
+  background-color: #151515;
+  border-radius: 1vh;
+  cursor: pointer;
 }
 
 .card:hover {
-  border: 2px solid #a42121;
+  transform: scale(0.95);
+}
+button {
+  border: none;
+  background-color: #202976;
+  color: #fff;
+  border-radius: 1vh;
+}
+button:hover {
+  background-color: #313fb7;
 }
 
 .langage {
-  background-color: #a42121;
-  padding: 4px;
-  font-size: 2vh;
-  border-radius: 1vh;
-  text-align: center;
+  font-size: 1vh;
 }
-
-.product-image {
-  width: 40px;
-  border-radius: 20vh;
-}
-
-.product-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.btn {
-  background-color: #a42121 ;
-  padding: 7px 13px; // Ajouté pour réduire la taille du bouton
-  font-size: 1.5vh; 
-  color: white;
-  
-}
-
-

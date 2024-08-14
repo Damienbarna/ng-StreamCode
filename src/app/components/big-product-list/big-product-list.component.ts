@@ -3,6 +3,7 @@ import { BigProductCardComponent } from '../big-product-card/big-product-card.co
 import { ModelProducts } from '../../utils/model-products';
 import { ProductService } from '../../services/product.service';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-big-product-list',
@@ -25,13 +26,14 @@ import { trigger, transition, style, animate } from '@angular/animations';
 })
 export class BigProductListComponent {
 
-  constructor(private productService: ProductService){}
+  constructor(private productService: ProductService, private auth: AuthService){}
 
   products: ModelProducts[] = [];
   selectedProduct: number = 0;
 
   ngOnInit(): void {
-    this.productService.getProducts().then((data) => {
+    const userId = this.auth.getCurrentUserId();
+    this.productService.getProducts(userId).then((data) => {
       this.products = data;
     });
   }

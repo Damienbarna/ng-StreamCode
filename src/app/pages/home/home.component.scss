@@ -1,17 +1,5 @@
-.card {
-  
-  padding: 0.2vh;
-  text-align: start;
-  color: white;
-  border-radius: 3vh;
-  min-width: 24vh;
-  width: 40vh;
-  height: 40vh;
-  background-color: #141414;
-}
-.card:hover{
-  transform: scale(1.05) ;
-}
+
+
 
 
 *{
@@ -20,7 +8,7 @@
 
 section {
   margin-left: 2%;
-  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 img {
@@ -30,7 +18,7 @@ img {
 }
 
 #top-categories {
-  color: rgb(144, 26, 26);
+  color: #4a075f;
 }
 
 
@@ -45,12 +33,3 @@ p:hover {
   color: red;
 }
 
-.trait {
-  width: 95%;
-  height: 1px;
-  background-color: rgb(61, 60, 60);
-  margin-left: 2.5%;
-  
-  
-  
-}

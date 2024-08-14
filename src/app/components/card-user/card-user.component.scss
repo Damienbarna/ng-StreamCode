@@ -1,12 +1,14 @@
 .carte {
-  background-color: rgb(31, 31, 31);
+  background-color: #1e1f28;
   border-radius: 1vh;
+  position: relative;
 }
 
 video {
-  width: 50%;
-  height: 50%;
+  width: 30%;
+  height: 30%;
   object-fit: cover;
+  border-radius: 1vh;
 }
 
 .btn {
@@ -14,7 +16,24 @@ video {
 }
 
 .modal-content {
-  background-color: rgb(31, 31, 31);
+  background-color: #1e1f28;
+  border-radius: 1vh;
+}
+
+.boutons {
+  position: absolute;
+  bottom: 0;
+  width: 68.5%;
+  
+  
+}
+
+.bouton {
+  color: #dedee0;
+}
+
+.bouton:hover {
+  background-color: #252631;
   border-radius: 1vh;
 }
 

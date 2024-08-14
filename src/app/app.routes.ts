@@ -12,17 +12,17 @@ import { LoginComponent } from './pages/login/login.component';
 
 
 export const routes: Routes = [
-  {path : 'home', component : HomeComponent},
-  {path : '', component : HomeComponent},
-  {path : 'categories', component : CategoriesComponent},
-  {path : 'jeux', component : JeuxVideoComponent},
-  {path : 'web', component : WebComponent},
-  {path : 'logiciel', component : LogicielComponent},
-  {path : 'smartphone', component : SmartphoneComponent},
-  {path : 'securite', component : SecuriteComponent},
-  {path : 'live', component : LiveComponent},
-  {path : 'vod', component : VodComponent},
-  {path : 'login', component : LoginComponent},
+  {path : 'home', component : HomeComponent, data: { animation: 'HomePage' }},
+  {path : '', component : HomeComponent, data: { animation: 'HomePage' }},
+  {path : 'categories', component : CategoriesComponent, data: { animation: 'CategoriesPage' }},
+  {path : 'jeux', component : JeuxVideoComponent, data: { animation: 'JeuxPage' }},
+  {path : 'web', component : WebComponent, data: { animation: 'WebPage' }},
+  {path : 'logiciel', component : LogicielComponent, data: { animation: 'LogicielPage' }},
+  {path : 'smartphone', component : SmartphoneComponent, data: { animation: 'SmartphonePage' }},
+  {path : 'securite', component : SecuriteComponent, data: { animation: 'SecuritePage' }},
+  {path : 'live', component : LiveComponent, data: { animation: 'LivePage' }},
+  {path : 'vod', component : VodComponent, data: { animation: 'VodPage' }},
+  {path : 'login', component : LoginComponent, data: { animation: 'LoginPage' }},
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
   
 ];

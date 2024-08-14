@@ -1,38 +1,45 @@
 <div class="modal" [ngClass]="{'show': isVisible}" (click)="onClose($event)">
   <div class="modal-content" (click)="preventClose($event)">
-    <span class="close" (click)="onClose($event)">&times;</span>
-    <h2>S'enregistrer</h2>
-    <form [formGroup]="signupForm" (ngSubmit)="onRegisterSubmit()">
-      <div>
+    
+    
+
+    <form [formGroup]="signupForm" (ngSubmit)="onRegisterSubmit()" class=" d-flex flex-column align-items-center gap-4 ">
+      <h5 class="text-center">S'enregistrer</h5>
+      <div class="input d-flex flex-column">
         <label for="username">Nom d'utilisateur</label>
         <input id="username" formControlName="username" type="text" placeholder="Nom d'utilisateur" />
       </div>
-      <div>
+      <div class="input d-flex flex-column">
         <label for="password">Mot de passe</label>
         <input id="password" formControlName="password" type="password" placeholder="Mot de passe" />
       </div>
-      <button type="submit" class="btn btn-primary">S'inscrire</button>
+      
+      <button type="submit" class="btn btn-violet">S'inscrire</button>
     </form>
+
   </div>
 </div>
 
 <div class="modal" [ngClass]="{'show': isSecondModalVisible}" (click)="onCloseSecondModal($event)">
   <div class="modal-content" (click)="preventClose($event)">
-    <span class="close" (click)="onCloseSecondModal($event)">&times;</span>
-    <h2>Se connecter</h2>
-    <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
-      <div>
+   
+    
+    <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()" class=" d-flex flex-column align-items-center gap-4 ">
+      <h5>Se connecter</h5>
+      <div class="input d-flex flex-column">
         <label for="login-username">Nom d'utilisateur</label>
         <input id="login-username" formControlName="username" type="text" placeholder="Nom d'utilisateur" />
       </div>
-      <div>
+      <div class="input d-flex flex-column">
         <label for="login-password">Mot de passe</label>
         <input id="login-password" formControlName="password" type="password" placeholder="Mot de passe" />
       </div>
-      <button type="submit" class="btn btn-dark">Se connecter</button>
+      <button type="submit" class="btn btn-violet">Se connecter</button>
     </form>
   </div>
 </div>
 
-<button class="btn btn-danger" (click)="openFirstModal()">S'enregistrer</button>
-<button class="btn btn-dark" (click)="openSecondModal()">Se connecter</button>
+<div class="login-buttons d-flex gap-2">
+  <button class=" register " (click)="openFirstModal()">S'enregistrer</button>
+  <button class=" login " (click)="openSecondModal()">Connexion</button>
+</div>

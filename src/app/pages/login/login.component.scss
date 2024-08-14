@@ -8,7 +8,14 @@
   height: 100%; 
   overflow: auto; 
   
-  background-color: rgba(0,0,0,0.4); 
+background-color: rgba(0, 0, 0, 0.5);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+
+overflow-y: hidden;
+
+  
+
 
   
 }
@@ -18,7 +25,7 @@
 }
 
 .modal-content {
-  background-color: #141414;
+  background-color: #17171e;
   color: #aaa;
   margin: 15% auto; 
   padding: 20px;
@@ -38,4 +45,54 @@
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+.register{
+ border: none;
+background-color: transparent;
+ color: #dedee0;
+ border-radius: 1vh;
+ padding: 1vh;
+}
+
+.login{
+ border: none;
+ background-color: transparent;
+ color: #dedee0;
+ border-radius: 1vh;
+ padding: 1vh;
+ 
+}
+
+.login:hover{
+  background-color: #1e1f28;
+}
+
+.register:hover{
+  background-color: #1e1f28;
+}
+
+
+
+input {
+ padding: 0.5vh;
+  border-radius: 1vh;
+  
+  
+}
+
+label {
+  font-size: 2vh;
+ 
+}
+
+.btn-violet {
+  background-color: #3b48d4;
+  color: #dedee0;
+  
+}
+
+.btn-violet:hover {
+  background-color: #7c86f4;
+  color: #dedee0;
 }

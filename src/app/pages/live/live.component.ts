@@ -1,14 +1,26 @@
-import { Component } from '@angular/core';
-import { LiveSessionComponent } from '../../components/live-session/live-session.component';
+import { Component, OnInit } from '@angular/core';
+import { ChatComponent } from '../../components/chat/chat.component';
+import { ChatService } from '../../services/chat.service';
+import { Message } from '../../utils/model-message';
+
 
 @Component({
   selector: 'app-live',
-  standalone: true,
-  imports: [LiveSessionComponent],
   templateUrl: './live.component.html',
-  styleUrl: './live.component.scss'
+  styleUrls: ['./live.component.scss'],
+  standalone: true,
+  imports: [ChatComponent]
 })
-export class LiveComponent {
-  
+export class LiveComponent implements OnInit {
 
+
+  public messages: Message[] = [];
+
+  constructor(private chatService: ChatService) {}
+
+  ngOnInit() {
+    this.chatService.getMessages().subscribe((message: Message) => {
+      this.messages.push(message);
+    });
+  }
 }

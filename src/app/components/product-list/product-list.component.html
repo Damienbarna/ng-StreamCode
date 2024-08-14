@@ -1,5 +1,5 @@
-<div class="product-list d-flex ">
+<div class="product-list d-flex justify-content-start gap-2 ">
   @for (product of products; track product.id){
-    <app-product-card class="product-card gap-2" [product]="product"></app-product-card>
+    <app-product-card    [product]="product"></app-product-card>
   }
 </div>

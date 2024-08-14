@@ -3,7 +3,7 @@
 html, body { height: 100%; }
 body { margin: 0;  font-family: "Audiowide", sans-serif;
   font-weight: 400;
-  font-style: normal; background-color: #141414; color: white;}
+  font-style: normal; background-color: #151515; color: white;}
 
   section{
     color: white;
@@ -13,19 +13,13 @@ body { margin: 0;  font-family: "Audiowide", sans-serif;
   }
 
 .custom-menu {
-  background-color: cyan;
+  
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-.custom-menu .mat-menu-item {
-  padding: 10px 20px !important; /* Espacement interne */
-}
 
-.custom-menu .mat-menu-item:hover {
-  background-color: #555 !important; /* Couleur de fond au survol */
-}
 
 
 
@@ -43,11 +37,10 @@ body { margin: 0;  font-family: "Audiowide", sans-serif;
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #403f3f; 
+  background: #313132; 
   border-radius: 10px;
   
 }
-
 
 
 

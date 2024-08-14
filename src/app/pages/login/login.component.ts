@@ -1,7 +1,8 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,13 +15,16 @@ export class LoginComponent {
   @Input() isVisible: boolean = false;
   @Output() close = new EventEmitter<void>();
   
+  
+  
   isSecondModalVisible = false;
   signupForm: FormGroup = new FormGroup({});
   loginForm: FormGroup = new FormGroup({});
+  userName: string = "";
 
   isAuthenticated = false;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
     this.signupForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
@@ -73,11 +77,14 @@ export class LoginComponent {
     this.authService.login(username, password).subscribe({
       next: (response) => {
         console.log('Connexion réussie', response);
+        console.log(username, password);
+        this.userName = username;
+
         this.isAuthenticated = true;
         this.onClose(new Event('close'));
-       
+        
       },
-      error: (error) => {
+      error: (error) => {     
         console.error('Erreur lors de la connexion', error);
       }
     })

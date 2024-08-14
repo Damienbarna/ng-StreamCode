@@ -1,16 +1,13 @@
-  <div class="card" style="width: 16.8rem;" routerLink="/live">
-    <img src="/img/streamer.png" class="card-img-top" alt="...">
-    <div class="card-body d-flex align-items-center flex-column">
-      <div class="d-flex justify-content-start w-100">
-        <img src="{{product.url}}" alt="..." class="product-image">
-        <p class="product-name ms-3 mt-2">{{product.name}}</p>
-      </div>
-      <div class="product-info  mt-3">
-        <p>{{product.description}}</p>
-        <div class="tag d-flex gap-2">
-          <button class="btn ">{{product.langage}}</button>
-          <button class="btn ">{{product.langage}}</button>
-        </div>
-      </div>
-    </div>
+<div class="card " routerLink="/live">
+
+  <video src="{{product.image}}"></video>
+  <h6>{{product.name}}</h6>
+  <p>{{product.description}}</p>
+
+  <div class="tag d-flex gap-2">
+    <button><p class="langage">{{product.langage}}</p></button>
+    <button><p class="langage">{{product.langage}}</p></button>
   </div>
+</div>
+
+

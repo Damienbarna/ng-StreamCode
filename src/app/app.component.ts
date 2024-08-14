@@ -1,21 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { RouterLink } from '@angular/router';
 import { SidenavComponent } from './components/sidenav/sidenav.component';  
 import {MatMenuModule} from '@angular/material/menu';
 import { LoginComponent } from './pages/login/login.component';
-import { FooterComponent } from './components/footer/footer.component';
+
 import { AuthService } from './services/auth.service';
 
-
+import { zoomAnimation } from './route-animation';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, SidenavComponent, MatMenuModule, LoginComponent, FooterComponent,],
+  imports: [RouterOutlet, RouterLink, SidenavComponent, MatMenuModule, LoginComponent, ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  
+  animations: [zoomAnimation]
 })
 export class AppComponent {
 
@@ -43,5 +43,7 @@ export class AppComponent {
     
   }
 
-  
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+  }
 }

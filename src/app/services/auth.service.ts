@@ -6,12 +6,7 @@ import { catchError, map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService{
-
-
-
-  private isAuthenticated = false;
- 
+export class AuthService {
 
   constructor(private http: HttpClient) { }
 
@@ -24,15 +19,14 @@ export class AuthService{
       map((response: any) => {
         if (response.token) {
           localStorage.setItem('token', response.token);
-          this.isAuthenticated = true;
         }
         return response;
       })
     );
   }
+
   logout(): void {
     localStorage.removeItem('token');
-    this.isAuthenticated = false;
   }
 
   isLoggedIn(): boolean {
@@ -42,8 +36,19 @@ export class AuthService{
     return false;
   }
 
-  setLoggedIn(isLoggedIn: boolean): void {
-    this.isAuthenticated = isLoggedIn
+  private getPayLoad(){
+    const token = localStorage.getItem('token');
+    if(token == null){
+      throw new Error("Le token n'existe pas");
+    }
+    return JSON.parse(atob(token.split('.')[1]));
   }
 
+  getCurrentUser(): string {
+    return this.getPayLoad().username;
+  }
+
+  getCurrentUserId(): number {
+    return this.getPayLoad().userId;
+  }
 }

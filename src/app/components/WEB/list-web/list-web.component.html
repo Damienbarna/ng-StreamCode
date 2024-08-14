@@ -1,61 +1,51 @@
-
-
 <div class="card">
   <div class="card-body d-flex justify-content-between">
     <button class="openElement" mat-button [matMenuTriggerFor]="animals">Langage</button>
-<mat-menu #animals="matMenu" class="custom-menu">
-  <button mat-menu-item [matMenuTriggerFor]="langage">Langage</button>
-  <button mat-menu-item [matMenuTriggerFor]="framesworks">Framesworks</button>
-  
+    <mat-menu #animals="matMenu" class="custom-menu">
+      <button mat-menu-item [matMenuTriggerFor]="langage">Langage</button>
+      <button mat-menu-item [matMenuTriggerFor]="framesworks">Framesworks</button>
+    </mat-menu>
 
-</mat-menu>
+    <mat-menu #langage="matMenu" class="custom-menu">
+      <button mat-menu-item [matMenuTriggerFor]="suivant">Suivant</button>
+      <button mat-menu-item>C++</button>
+      <button mat-menu-item>C#</button>
+      <button mat-menu-item>JavaScript</button>
+      <button mat-menu-item>Python</button>
+      <button mat-menu-item>Java</button>
+      <button mat-menu-item>Kotlin</button>
+    </mat-menu>
 
-<mat-menu #langage="matMenu" class="custom-menu">
-  <button mat-menu-item [matMenuTriggerFor]="suivant">Suivant</button>
-  <button mat-menu-item>C++</button>
-  <button mat-menu-item>C#</button>
-  <button mat-menu-item>JavaScript</button>
-  <button mat-menu-item>Python</button>
-  <button mat-menu-item>Java</button>
-  <button mat-menu-item>Kotlin</button>
-</mat-menu>
+    <mat-menu #framesworks="matMenu" class="custom-menu">
+      <button mat-menu-item>Unreal Engine</button>
+      <button mat-menu-item>Unity</button>
+      <button mat-menu-item>Godot</button>
+    </mat-menu>
 
-<mat-menu #framesworks="matMenu">
-  <button mat-menu-item>Unreal Engine</button>
-  <button mat-menu-item>Unity</button>
-  <button mat-menu-item>Godot</button>
-  
-</mat-menu>
+    <mat-menu #suivant="matMenu" class="custom-menu">
+      <button mat-menu-item>Lua</button>
+      <button mat-menu-item>Rust</button>
+      <button mat-menu-item>Swift</button>
+      <button mat-menu-item>Go</button>
+      <button mat-menu-item>Ruby</button>
+      <button mat-menu-item>PHP</button>
+    </mat-menu>
 
+    <mat-menu #amphibians="matMenu">
+      <button mat-menu-item>Sonoran desert toad</button>
+      <button mat-menu-item>Western toad</button>
+      <button mat-menu-item>Arroyo toad</button>
+      <button mat-menu-item>Yosemite toad</button>
+    </mat-menu>
 
+    <mat-menu #reptiles="matMenu">
+      <button mat-menu-item>Banded Day Gecko</button>
+      <button mat-menu-item>Banded Gila Monster</button>
+      <button mat-menu-item>Black Tree Monitor</button>
+      <button mat-menu-item>Blue Spiny Lizard</button>
+      <button mat-menu-item disabled>Velociraptor</button>
+    </mat-menu>
 
-<mat-menu #suivant="matMenu">
-  <button mat-menu-item>Lua</button>
-  <button mat-menu-item>Rust</button>
-  <button mat-menu-item>Swift</button>
-  <button mat-menu-item>Go</button>
-  <button mat-menu-item>Ruby</button>
-  <button mat-menu-item>PHP</button>
-</mat-menu>
-
-<mat-menu #amphibians="matMenu">
-  <button mat-menu-item>Sonoran desert toad</button>
-  <button mat-menu-item>Western toad</button>
-  <button mat-menu-item>Arroyo toad</button>
-  <button mat-menu-item>Yosemite toad</button>
-</mat-menu>
-
-<mat-menu #reptiles="matMenu">
-  <button mat-menu-item>Banded Day Gecko</button>
-  <button mat-menu-item>Banded Gila Monster</button>
-  <button mat-menu-item>Black Tree Monitor</button>
-  <button mat-menu-item>Blue Spiny Lizard</button>
-  <button mat-menu-item disabled>Velociraptor</button>
-</mat-menu>
-
-
-  
-<button class="abonner btn btn-danger">s'abonner</button>
+    <button class="abonner btn btn-danger">s'abonner</button>
   </div>
-  
 </div>
