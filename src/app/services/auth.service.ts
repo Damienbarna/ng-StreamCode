@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, LOCALE_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -19,6 +19,7 @@ export class AuthService {
       map((response: any) => {
         if (response.token) {
           localStorage.setItem('token', response.token);
+         
         }
         return response;
       })
@@ -36,19 +37,24 @@ export class AuthService {
     return false;
   }
 
-  private getPayLoad(){
-    const token = localStorage.getItem('token');
-    if(token == null){
-      throw new Error("Le token n'existe pas");
+  getPayLoad() {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const token = localStorage.getItem('token');
+      if (token == null) {
+        throw new Error("Le token est null");
+      }
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      if (!payload.userId) {
+        throw new Error("Le token ne contient pas d'userId");
+      }
+      return payload;
     }
-    return JSON.parse(atob(token.split('.')[1]));
+    return null;
   }
 
   getCurrentUser(): string {
     return this.getPayLoad().username;
   }
 
-  getCurrentUserId(): number {
-    return this.getPayLoad().userId;
-  }
+ 
 }

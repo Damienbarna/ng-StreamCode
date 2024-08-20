@@ -7,7 +7,7 @@ import { LoginComponent } from './pages/login/login.component';
 
 import { AuthService } from './services/auth.service';
 
-import { zoomAnimation } from './route-animation';
+import { fader } from './route-animation';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +15,7 @@ import { zoomAnimation } from './route-animation';
   imports: [RouterOutlet, RouterLink, SidenavComponent, MatMenuModule, LoginComponent, ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [zoomAnimation]
+  animations: [fader]
 })
 export class AppComponent {
 

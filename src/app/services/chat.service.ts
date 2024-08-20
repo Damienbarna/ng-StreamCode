@@ -24,11 +24,15 @@ export class ChatService {
   }
 
   sendMessage(text: string) {
-    console.log(this.auth.getCurrentUser());
+    const username = this.auth.getCurrentUser();
+    if (!username) {
+      console.error("User is not authenticated");
+      return;
+    }
 
-    const message : Message = {
+    const message: Message = {
       content: text,
-      username: this.auth.getCurrentUser(),
+      username: username,
       timestamp: new Date()
     }
     this.socket.emit('message', message);

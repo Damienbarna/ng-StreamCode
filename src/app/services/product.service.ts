@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ModelProducts } from '../utils/model-products';
 import { HttpClient } from '@angular/common/http';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -9,7 +10,7 @@ export class ProductService {
   
 
   public async getProducts(limite: number = 20): Promise<ModelProducts[]> {
-    return fetch(`http://localhost:3000/products/${limite}`,{
+    return fetch(`http://localhost:3000/products/${limite}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -22,8 +23,8 @@ export class ProductService {
     });
   }
 
-  public async getAllProducts(): Promise<ModelProducts[]> {
-    return fetch(`http://localhost:3000/products/all`, {
+  public async getAllProducts(userId: number): Promise<ModelProducts[]> {
+    return fetch(`http://localhost:3000/products/all/${userId}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
