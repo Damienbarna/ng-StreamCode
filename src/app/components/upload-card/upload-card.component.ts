@@ -4,6 +4,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { ProductService } from '../../services/product.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UploadService } from '../../services/upload.service';
+import { AuthService } from '../../services/auth.service';
+
 
 
 @Component({
@@ -19,7 +21,7 @@ export class UploadCardComponent {
 
   @Output() productCreated = new EventEmitter<ModelProducts>();
 
-  constructor(private productService: ProductService, private uploadService: UploadService) {}  
+  constructor(private productService: ProductService, private uploadService: UploadService, private authService: AuthService) {}  
 
   userGroup = new FormGroup({
     langage: new FormControl(''),
@@ -37,7 +39,9 @@ export class UploadCardComponent {
 
   onSubmit() {
     if (this.selectedFile) {
+        const userId = this.authService.getCurrentUser();
         const productData: ModelProducts = {
+            userId: userId,
             name: this.userGroup.value.name ?? '',
             description: this.userGroup.value.description ?? '',
             url: this.userGroup.value.url ?? '',

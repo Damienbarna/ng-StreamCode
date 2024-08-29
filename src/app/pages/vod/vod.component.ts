@@ -21,22 +21,30 @@ export class VodComponent implements OnInit {
   private authService = inject(AuthService);
   
   ngOnInit(): void {
-    try {
-      const userId = this.authService.getPayLoad();
-      this.api.getAllProducts(userId).then((data) => {
-        this.products = data;
-      }).catch((error) => {
-        console.error("Erreur lors de la récupération des produits de l'utilisateur :", error);
-      });
-    } catch (error) {
-      console.error("Erreur lors de la récupération de l'ID utilisateur :", error);
-    }
-  }
+  
+      
+
+        this.api.getUserProducts().then((data) => {
+          this.products = data;
+        }).catch((error) => {
+          console.error("Erreur lors de la récupération des produits de l'utilisateur :", error);
+        });
+      }
 
   onAddProduct() {
     console.log('onAddProduct called');
-    this.api.getProducts().then(data => {
-      this.products = data;
-    });
+    try {
+      const payload = this.authService.getPayLoad();
+      
+      if (payload && payload.userId) {
+        this.api.getUserProducts().then(data => {
+          this.products = data;
+        });
+      } else {
+        console.error("Le token est invalide ou absent1");
+      }
+    } catch (error) {
+      console.error("Erreur lors de la récupération de l'ID utilisateur :", error);
+    }
   }
 }

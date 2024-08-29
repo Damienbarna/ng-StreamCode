@@ -3,6 +3,8 @@ import { CardUserComponent } from '../card-user/card-user.component';
 import { ModelProducts } from '../../utils/model-products';
 import { ProductService } from '../../services/product.service';
 import { EventEmitter, Output } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+
 @Component({
   selector: 'app-card-user-list',
   standalone: true,
@@ -13,17 +15,20 @@ import { EventEmitter, Output } from '@angular/core';
 export class CardUserListComponent implements OnInit {
 
   private api = inject(ProductService);
+  private authService = inject(AuthService);
 
   @Input() products: ModelProducts[] = [];
   @Output() productSelected = new EventEmitter<number>();
 
   ngOnInit(): void {
-   this.api.getProducts().then(data => {
-      this.products = data;
-    });
+        
+        this.api.getUserProducts().then(data => {
+          this.products = data;
+        }).catch(error => {
+          console.error('Erreur lors de la récupération des produits de l\'utilisateur :', error);
+        });
+     
   }
-
-  
 
   deletedProduct(productId: number) {
     this.products = this.products.filter(product => product.id !== productId);
@@ -33,5 +38,4 @@ export class CardUserListComponent implements OnInit {
       console.error('Erreur lors de la suppression du produit', error);
     });
   }
-  
 }

@@ -18,8 +18,8 @@ export class AuthService {
     return this.http.post('http://localhost:3000/login', { name: username, password }).pipe(
       map((response: any) => {
         if (response.token) {
+          console.log("Token reçu après connexion:", response.token);
           localStorage.setItem('token', response.token);
-         
         }
         return response;
       })
@@ -44,6 +44,7 @@ export class AuthService {
         throw new Error("Le token est null");
       }
       const payload = JSON.parse(atob(token.split('.')[1]));
+      console.log(payload);
       if (!payload.userId) {
         throw new Error("Le token ne contient pas d'userId");
       }
@@ -53,7 +54,7 @@ export class AuthService {
   }
 
   getCurrentUser(): string {
-    return this.getPayLoad().username;
+    return this.getPayLoad().userId;
   }
 
  

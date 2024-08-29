@@ -1,4 +1,5 @@
 export interface ModelProducts {
+    userId: string;
     id: number; 
     name: string;
     categorie: string;

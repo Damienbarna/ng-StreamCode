@@ -34,6 +34,7 @@ export class UpdateCardUserComponent {
 
   onSubmit() {
     const updatedProduct: ModelProducts = {
+      userId: this.product.userId, 
       description: this.userGroup.value.description || '', 
       name: this.userGroup.value.name || '', 
       id: this.product.id, 
