@@ -1,8 +1,10 @@
-import { Component, Input, Output, EventEmitter, output } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   @Input() isVisible: boolean = false;
   @Output() close = new EventEmitter<void>();
   
@@ -24,7 +26,10 @@ export class LoginComponent {
 
   isAuthenticated = false;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
+  constructor(private formBuilder: FormBuilder,
+              private authService: AuthService, 
+              private router: Router,
+              ) {
     this.signupForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
@@ -33,6 +38,11 @@ export class LoginComponent {
       username: ['', Validators.required],
       password: ['', Validators.required],
     });
+  }
+
+  ngOnInit(){
+    this.isAuthenticated = this.authService.isLoggedIn();
+
   }
 
   openFirstModal() {
@@ -89,4 +99,7 @@ export class LoginComponent {
       }
     })
   }
+  
+  
+  
 }

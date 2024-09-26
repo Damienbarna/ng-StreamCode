@@ -30,7 +30,8 @@ export class UploadCardComponent {
     description: new FormControl(''),
     name: new FormControl(''),
     id: new FormControl(''),
-    url: new FormControl('')
+    url: new FormControl(''),
+   
   });
 
   onFileSelected(event: any) {
@@ -39,7 +40,12 @@ export class UploadCardComponent {
 
   onSubmit() {
     if (this.selectedFile) {
-        const userId = this.authService.getCurrentUser();
+        const userId = this.authService.getCurrentUserId();
+        if (!userId) {
+          console.error('User ID is null. Please check the authentication service.');
+          return;
+        }
+
         const productData: ModelProducts = {
             userId: userId,
             name: this.userGroup.value.name ?? '',
@@ -48,7 +54,8 @@ export class UploadCardComponent {
             langage: this.userGroup.value.langage ?? '',
             categorie: this.userGroup.value.categorie ?? '',
             id: Number(this.userGroup.value.id) ?? 0,
-            image: '' // L'URL de l'image sera ajoutée par le backend
+            image: '', // L'URL de l'image sera ajoutée par le backend
+            likes: 0
         };
 
         const formData = new FormData();

@@ -2,6 +2,7 @@
   background-color: #1e1f28;
   border-radius: 1vh;
   position: relative;
+  width: 147vh;
 }
 
 video {
@@ -23,19 +24,79 @@ video {
 .boutons {
   position: absolute;
   bottom: 0;
-  width: 68.5%;
+  
   
   
 }
 
 .bouton {
   color: #dedee0;
+  width: 100%;
 }
 
 .bouton:hover {
   background-color: #252631;
   border-radius: 1vh;
 }
+
+.video-container {
+  position: relative;
+  width: 400px; 
+
+}
+
+video {
+  width: 100%;
+  height: auto;
+  border-radius: 1vh;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  
+}
+
+.custom-controls {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+}
+
+
+
+.center-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #dedee0;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.center-button:hover {
+  background: #7c86f4;
+}
+
+.progress-bar {
+  width: 100%;
+}
+.volume-bar {
+  width: 10%;
+  
+ 
+  
+ 
+}
+
+.options {
+  width: 100%;
+}
+
+
 
 
 

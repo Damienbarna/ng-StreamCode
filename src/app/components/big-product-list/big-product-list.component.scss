@@ -1,0 +1,33 @@
+.boutonnext{
+ width: 3vh;
+ height: 3vh;
+ padding: 0;
+ margin: 0;
+ background-color: transparent;
+ border: none;
+ position: absolute;
+ right: 10%;
+ top: 45%;
+}
+.boutonprev{
+  width: 3vh;
+  height: 3vh;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  left: 5%;
+  top: 45%;
+}
+
+.bigcard{
+  width: 100%;
+  min-width: 100%;
+  height: 100%;
+} 
+
+svg{
+  color: #dedee0;
+}
+

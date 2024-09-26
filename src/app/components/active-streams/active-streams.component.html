@@ -1,0 +1,7 @@
+<div class="stream-cards">
+  @for(stream of activeStreams; track $index){
+  <div class="stream-card" (click)="joinStream(stream)">
+    <p>Stream ID: {{ stream }}</p>
+  </div>
+}
+</div>

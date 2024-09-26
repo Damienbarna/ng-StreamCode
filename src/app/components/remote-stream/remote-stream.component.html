@@ -1,0 +1,16 @@
+
+<div class="d-flex ">
+<div class="stream-container">
+<div class="controls mt-5">
+  <p>Stream ID à rejoindre : {{ userIdToJoin }}</p>
+  <button (click)="joinStream()">Rejoindre le stream</button>
+</div>
+<div class="remote-videos">
+  <h3>Flux distants</h3>
+  <div id="remoteVideosContainer"></div>
+</div>
+</div>
+<div class="chat-container">
+<app-chat ></app-chat>
+</div>
+</div>

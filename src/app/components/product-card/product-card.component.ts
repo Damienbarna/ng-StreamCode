@@ -1,22 +1,24 @@
 import { Component, Input } from '@angular/core';
 import { ModelProducts } from '../../utils/model-products';
-import { RouterLink } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [RouterLink],
   templateUrl: './product-card.component.html',
-  styleUrl: './product-card.component.scss'
+  styleUrls: ['./product-card.component.scss']
 })
 export class ProductCardComponent {
+  @Input() product!: ModelProducts;
 
-  products : ModelProducts[] = [];
+  constructor(private http: HttpClient, private router: Router) {}
 
-  @Input({required:true}) product!:ModelProducts;
+ 
 
-
-
-
-
+  navigateToVideo(){
+    this.router.navigate(['/video', this.product.id]);
+  }
+  
 }

@@ -40,6 +40,14 @@
 </div>
 
 <div class="login-buttons d-flex gap-2">
-  <button class=" register " (click)="openFirstModal()">S'enregistrer</button>
-  <button class=" login " (click)="openSecondModal()">Connexion</button>
+    @if (!isAuthenticated){
+    <button class=" register " (click)="openFirstModal()">S'enregistrer</button>
+    <button class=" login " (click)="openSecondModal()">Connexion</button>
+    }@else{
+      <span class="mr-3"> connecté</span>
+    }
+    
+  
+    
+  
 </div>

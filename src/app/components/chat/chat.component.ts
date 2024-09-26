@@ -1,56 +1,49 @@
-import { AuthService } from './../../services/auth.service';
-import { ChangeDetectorRef, Component, OnInit, inject, signal } from '@angular/core';
+import { Message } from './../../utils/model-message';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
 import { ChatService } from '../../services/chat.service';
-import { Message } from '../../utils/model-message';
 import { FormsModule } from '@angular/forms';
-import { DatePipe } from '@angular/common';
-import {tap} from 'rxjs/operators';
-
 
 @Component({
   selector: 'app-chat',
   standalone: true,
-  imports: [FormsModule, DatePipe],
+  imports: [FormsModule],
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss']
 })
-export class ChatComponent implements OnInit {
-  public messages = signal<Message[]>([]);
-  public messageContent: string = '';
-  
+export class ChatComponent implements OnInit, AfterViewChecked {
 
-  // private changeDetector = inject(ChangeDetectorRef);
+  @ViewChild('messageContainer') private messageContainer!: ElementRef;
 
-  constructor(
-    public chatService: ChatService,
-   
-  ) {}
+  public message: Message = {
+    userId: "",
+    content: "",
+    timestamp: new Date()
+  };
 
-  ngOnInit() {
-   
+  constructor(public chatService: ChatService) {}
 
-
-    // this.chatService.fetchMessages().pipe(tap((messages=>{
-    //   this.messages.set(messages);
-    
-    // })));
-
-    // this.chatService.getMessages().subscribe((message: Message) => {
-    //   console.log(message);
-    //   this.messages.update(messages=>[...messages, message]);
-    // });
+  ngOnInit(): void {
+    // Pas besoin de charger les messages ici, ils sont déjà chargés dans le service
   }
 
+  ngAfterViewChecked() {
+    this.scrollToBottom();
+  }
 
+  scrollToBottom(): void {
+    try {
+      this.messageContainer.nativeElement.scrollTop = this.messageContainer.nativeElement.scrollHeight;
+    } catch(err) {
+      console.error('Erreur lors du défilement automatique :', err);
+    }
+  }
 
   sendMessage() {
-  
-    
-    this.chatService.sendMessage(this.messageContent);
-    this.messageContent = '';
-
-    
+    if (!this.message.content.trim()) {
+      return; // Ne pas envoyer de message vide
+    }
+    this.chatService.sendMessage(this.message);
+    this.message.content = "";
+    this.scrollToBottom();
   }
-
-  
 }

@@ -42,5 +42,15 @@ body { margin: 0;  font-family: "Audiowide", sans-serif;
   
 }
 
+body {
+  padding-top: 60px; /* Ajustez cette valeur en fonction de la hauteur de votre navbar */
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 120px; /* Augmentez cette valeur pour les écrans plus petits */
+  }
+}
+
 
 

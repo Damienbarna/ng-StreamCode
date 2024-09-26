@@ -1,4 +1,4 @@
-*{
+* {
   font-family: "Audiowide", sans-serif;
 }
 
@@ -7,69 +7,53 @@
   padding: 2vh;
 }
 
-
-#categories:hover{
+#categories:hover {
   color: #9718c2 !important;
 }
 
-.btn-menu{
+.btn-menu {
   border: none;
   background-color: transparent;
   color: white;
 }
 
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   background-color: #252631;
-  padding-left: 2vh;
-  padding-right: 2vh;
-  position: fixed;  
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
-  width: 100%;
+  transition: height 0.3s ease;
 }
 
-.fixed-navbar {
-  position: fixed;
+@media (max-width: 768px) {
+  .navbar {
+    height: auto;
+    flex-direction: column;
+  }
+}
+
+.menu, .search, .profile {
   width: 100%;
-  z-index: 2000;
-  transition: top 0.3s;
-  
 }
 
 .search {
   display: flex;
-  align-items: center; 
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 1vh;
-  
+  justify-content: center;
+  width: 60%;
+  max-width: 400px; // Ajouter une largeur maximale
 }
-
-.search:hover {
-  border: 1px solid #c0baba;
-}
-
-
-
-
-
 
 #input {
   border: none;
   border-radius: 1vh 0 0 1vh;
   padding: 1vh;
   margin: 0; 
-  background-color: #1f2029 ;
+  background-color: #1f2029;
   color: #c0baba;
-}
-
-#input:focus{
-  outline: none;
-  border: none;
+  width: 100%; // Utiliser toute la largeur disponible
 }
 
 .btn-search {
@@ -83,37 +67,56 @@
   color: #ddd5d5;
 }
 
+.search:hover {
+  #input, .btn-search {
+    border: 1px solid #c0baba;
+  }
+}
+
 .feather-user {
   color: #c0baba;
 }
 
 .open {
- background-color: #252631;
+  background-color: #252631;
   border: none;
   color: #c0baba;
 }
 
-.profile{
+.profile {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1vh;
 }
 
-
-
-
-
-.dropdown-menu{
+.dropdown-menu {
   background-color: #252631 !important;
-  
 }
-.bouton-menu{
+
+.bouton-menu {
   color: #dedee0 !important;
 }
 
+.profile-image {
+  width: 2vw;
+  height: 2vw;
+}
 
+@media (min-width: 768px) {
+  .navbar {
+    flex-direction: row;
+  }
 
+  .menu, .profile {
+    width: auto;
+  }
 
+  .search {
+    width: 50%;
+  }
 
-
+  #input {
+    width: 100%;
+  }
+}

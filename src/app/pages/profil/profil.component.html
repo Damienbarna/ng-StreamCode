@@ -1,0 +1,7 @@
+<section >
+<form class="d-flex flex-column align-items-center gap-3 mt-5" [formGroup]="userGroup" (ngSubmit)="onSubmit()">
+  <input class="file-input" type="file" (change)="onFileSelected($event)" />
+  <button type="submit" class="btn">Ajouter</button>
+</form>
+<img [src]="userGroup.value.imageUrl" alt="User Image" class="user-image">
+</section>

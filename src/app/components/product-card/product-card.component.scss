@@ -15,16 +15,26 @@ video{
 .card:hover {
   transform: scale(0.95);
 }
-button {
+.langage {
   border: none;
   background-color: #202976;
   color: #fff;
   border-radius: 1vh;
 }
-button:hover {
+.langage:hover {
   background-color: #313fb7;
 }
 
 .langage {
   font-size: 1vh;
 }
+
+h6{
+  color: white;
+}
+
+p{
+  color: white;
+}
+
+

@@ -1,0 +1,18 @@
+.stream-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.stream-card {
+  background-color: #1e1f28;
+  color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.stream-card:hover {
+  transform: scale(1.05);
+}

@@ -1,0 +1,16 @@
+<section>
+@if (videoDetails) {
+  <div>
+    <video  [src]="videoDetails.image" controls></video>
+    <h4>{{ videoDetails.name }}</h4>
+    
+    
+  </div>
+  
+}
+
+<button (click)="likeVideo()">Like</button>
+<p>Likes: {{ videoDetails?.likes }}</p>
+
+</section>
+

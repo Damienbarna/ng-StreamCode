@@ -1,8 +1,21 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
 .openElement {
   cursor: pointer;
   padding: 1rem 2rem;
   font-size: 1.5rem;
-  background-color: #1f1919;
+  background-color: transparent;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -22,9 +35,74 @@
   background-position: center;
   background-repeat: no-repeat;
   height: 18vh;
-  border-color: #181818;
+  background-color: black;
 }
 .abonner {
+  padding: 1vh;
   height: 5vh;
-  width: 20vh;
+  background-color: #3b48d4;
+  color: white;
 }
+
+.abonner:hover {
+  background-color: #7c86f4;
+}
+
+.modal-content {
+  background-color: #252631;
+  overflow: hidden;
+  position: relative;
+}
+
+mat-tab-group {
+  color: white;
+}
+
+mat-tab-label {
+  color: white;
+}
+
+mat-tab {
+  color: white;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;   
+  transition: transform 0.5s ease-in-out;
+  min-height: 60vh;
+  max-height: 60vh;
+}
+
+.content {
+  width: 100%;
+  flex: 1; 
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+}
+
+
+.list1{
+  color: white;
+}
+
+li{
+  padding: 2vh;
+  font-size: 1.5rem;
+
+}
+li:hover {
+  
+  transform: scale(1.1);
+}
+
+
+
+.btn-top {
+  color: white;
+  width: 50%;
+}
+
+
+

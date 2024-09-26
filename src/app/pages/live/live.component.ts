@@ -1,26 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { ChatComponent } from '../../components/chat/chat.component';
-import { ChatService } from '../../services/chat.service';
-import { Message } from '../../utils/model-message';
+import { RemoteStreamComponent } from '../../components/remote-stream/remote-stream.component';
+
+
 
 
 @Component({
   selector: 'app-live',
   templateUrl: './live.component.html',
   styleUrls: ['./live.component.scss'],
+  imports: [ RemoteStreamComponent],
   standalone: true,
-  imports: [ChatComponent]
 })
-export class LiveComponent implements OnInit {
+export class LiveComponent   {
 
 
-  public messages: Message[] = [];
-
-  constructor(private chatService: ChatService) {}
-
-  ngOnInit() {
-    this.chatService.getMessages().subscribe((message: Message) => {
-      this.messages.push(message);
-    });
-  }
 }

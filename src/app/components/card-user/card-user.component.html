@@ -1,21 +1,25 @@
-
-
 <div class="carte d-flex  ">
-  <video controls>
-    <source [src]="product.image" type="video/mp4">
-    Votre navigateur ne supporte pas les vidéos
-  </video>
+  <div class="video-container">
+    <video #videoPlayer [src]="product.image" type="video/mp4" (timeupdate)="updateProgress(videoPlayer)"></video>
+    <button class="center-button" (click)="playPause(videoPlayer)">Start/Stop</button>
+    <div class="custom-controls">
+      
+      <div class="progress-bar d-flex flex-row">
+      <input class="progress-bar" type="range" #progressBar (input)="seek(videoPlayer, $event)" [max]="videoPlayer.duration" [value]="videoPlayer.currentTime">
+      <input class="volume-bar" type="range" min="0" max="1" step="0.01" (input)="changeVolume(videoPlayer, $event)" [value]="videoPlayer.volume">
+    </div>
+    </div>
+  </div>
 
-
-  <ul class="list-unstyled ms-2">
+  <ul class="list-unstyled ms-2 options ">
     <li>{{product.name}}</li>
     <li>{{product.description}}</li>    
     <li></li>
 
-    <div class="boutons d-flex text-center">
+    <div class="boutons d-flex text-center align-items-arround">
     <button class="btn bouton" (click)="deleteProduct()">Supprimer</button>
 <!-- Button trigger modal -->
-<button type="button" class="btn bouton" data-bs-toggle="modal" data-bs-target="#modal">
+<button type="button" class="btn bouton" data-bs-toggle="modal" [attr.data-bs-target]="'#modal' + product.id">
 Modifier
 </button>
 </div>
@@ -28,7 +32,7 @@ Modifier
 
 
 <!-- Modal -->
-<div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
+<div class="modal fade" [id]="'modal' + product.id" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
 <div class="modal-dialog">
 <div class="modal-content">
 <div class="modal-body">

@@ -7,5 +7,6 @@ export interface ModelProducts {
     url: string;
     langage: string;
     image: string;
+    likes: number;
 }
 

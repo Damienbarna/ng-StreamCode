@@ -32,10 +32,37 @@ export class CardUserComponent {
     this.productUpdated.emit(updatedProduct.id); 
   }
 
-  
+  playPause(video: HTMLVideoElement) {
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  }
 
-  
- 
+  stop(video: HTMLVideoElement) {
+    video.pause();
+    video.currentTime = 0;
+  }
 
- 
+  seek(video: HTMLVideoElement, event: Event) {
+    const input = event.target as HTMLInputElement;
+    video.currentTime = parseFloat(input.value);
+  }
+
+  muteUnmute(video: HTMLVideoElement) {
+    video.muted = !video.muted;
+  }
+
+  updateProgress(video: HTMLVideoElement) {
+    const progressBar = document.querySelector('input[type="range"]') as HTMLInputElement;
+    if (progressBar) {
+      progressBar.value = video.currentTime.toString();
+    }
+  }
+
+  changeVolume(video: HTMLVideoElement, event: Event) {
+    const input = event.target as HTMLInputElement;
+    video.volume = parseFloat(input.value);
+  }
 }

@@ -1,15 +1,15 @@
-<div class="chat">
- 
-  <div  class="messages">
-    @for (message of chatService.messages(); track message) {
-      <div class="d-flex gap-1">
-        <div class="username">{{message.username}}:</div> 
-        <div class="message">{{ message.content }}</div>
-      </div>
-    }
-  </div>
-  <div class="absolute d-flex flex-column gap-3 ">
-    <input [(ngModel)]="messageContent" placeholder="Type your message here..." class="align-self-center" />
-    <button (click)="sendMessage()" class="align-self-end">Chat</button>
-  </div>
+<div #messageContainer class="message-container">
+  @for(message of chatService.messages(); track $index){
+    <div class="message">
+      <p>{{message.content}}</p>
+    </div>
+  }
 </div>
+
+<div class="input-container">
+  <input [(ngModel)]="message.content" type="text" placeholder="Tapez votre message...">
+  <button (click)="sendMessage()">Envoyer</button>
+</div>
+
+
+

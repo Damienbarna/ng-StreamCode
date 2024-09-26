@@ -41,7 +41,8 @@ export class UpdateCardUserComponent {
       url: this.userGroup.value.url || '',
       langage: this.userGroup.value.langage || '',
       categorie: this.userGroup.value.categorie || '',
-      image: this.userGroup.value.image || ''
+      image: this.userGroup.value.image || '',
+      likes: this.product.likes
     };
 
     this.productService.updateProduct(updatedProduct).then(response => {

@@ -16,7 +16,11 @@ export class AuthService {
 
   login(username: string, password: string): Observable<any> {
     return this.http.post('http://localhost:3000/login', { name: username, password }).pipe(
-      map((response: any) => {
+      catchError((error: any) => {
+        console.error(error);
+        return of(error);
+      }),
+      map((response: any) => {  
         if (response.token) {
           console.log("Token reçu après connexion:", response.token);
           localStorage.setItem('token', response.token);
@@ -26,8 +30,12 @@ export class AuthService {
     );
   }
 
-  logout(): void {
-    localStorage.removeItem('token');
+  logout(): boolean {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      localStorage.removeItem('token');
+      return true;
+    }
+    return false;
   }
 
   isLoggedIn(): boolean {
@@ -35,6 +43,34 @@ export class AuthService {
       return !!localStorage.getItem('token');
     }
     return false;
+  }
+
+  private isLocalStorageAvailable(): boolean {
+    try {
+      return typeof window !== 'undefined' && !!window.localStorage;
+    } catch (e) {
+      return false;
+    }
+  }
+  
+  getCurrentUserId(): string | null {
+    if (!this.isLocalStorageAvailable()) {
+      console.warn('localStorage is not available');
+      return null;
+    }
+    try {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        console.error('No token found');
+        return null;
+      }
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      console.log("Token payload:", payload);
+      return payload.userId ? payload.userId.toString() : null;
+    } catch (error) {
+      console.error("Erreur lors de la récupération de l'ID utilisateur :", error);
+      return null;
+    }
   }
 
   getPayLoad() {
@@ -53,9 +89,21 @@ export class AuthService {
     return null;
   }
 
-  getCurrentUser(): string {
-    return this.getPayLoad().userId;
-  }
+  getUserProfile(userId: string): Observable<any> {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      throw new Error('Token non disponible. Veuillez vous connecter.');
+    }
 
- 
+    return this.http.get(`http://localhost:3000/getname/${userId}`, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    }).pipe(
+      catchError((error: any) => {
+        console.error('Erreur lors de la récupération du profil utilisateur :', error);
+        return of(null);
+      })
+    );
+  }
 }

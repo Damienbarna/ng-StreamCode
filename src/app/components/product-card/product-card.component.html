@@ -1,13 +1,12 @@
-<div class="card " routerLink="/live">
-
+<div class="card" (click)="navigateToVideo()">
   <video src="{{product.image}}"></video>
-  <h6>{{product.name}}</h6>
   <p>{{product.description}}</p>
 
   <div class="tag d-flex gap-2">
     <button><p class="langage">{{product.langage}}</p></button>
     <button><p class="langage">{{product.langage}}</p></button>
   </div>
+ 
 </div>
 
 
